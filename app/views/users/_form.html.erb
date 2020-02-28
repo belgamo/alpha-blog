@@ -26,7 +26,7 @@
               <%= f.label :password, for: 'password_description' %>        
               <%= f.password_field :password, class: 'form-control', id: 'password_description', placeholder: 'Password' %>
             </div>
-            <%= f.submit 'Sign up', :class => 'btn btn-primary' %> 
+            <%= f.submit(@user.new_record? ? 'Sign up' : 'Update account', :class => 'btn btn-primary') %> 
         <% end %>
     </div>
 </div>

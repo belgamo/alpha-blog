@@ -26,6 +26,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(user_params)
+      flash[:success] = "User succesfully updated"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
