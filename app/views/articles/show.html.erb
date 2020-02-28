@@ -1,14 +1,26 @@
-<h1>Showing selected article</h1>
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    Article
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= @article.title %></h5>
+                    <p class="card-text"><%= @article.description %></p>
+                    <%= link_to "Edit this article", edit_article_path(@article), class: 'btn btn-sm btn-primary' %> 
+                    <%= link_to "Delete this article", article_path, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %> 
+                </div>
+                <div class="card-footer text-muted">
+                    <%= time_ago_in_words(@article.updated_at) %>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<p>
-    Title: <%= @article.title %>
-</p>
-
-<p>
-    Description: <%= @article.description %>
-</p>
-
-<p>
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-    <%= link_to "Back to articles listing", articles_path %>
-</p>
+    <div class="row mt-3">
+        <div class="col-12">
+            <%= link_to "Back to articles listing", articles_path %>
+        </div>
+    </div>
+</div>
