@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-12 d-flex align-items-center flex-column">
+      <h2><%= @user.username %>'s page</h2>
+      <div class="rounded-circle m-3">
+        <%= gravatar_for @user %>
+      </div>  
+      <div class="card d-flex flex-colum align-items-center" style="width: 18rem;">
+        <div class="card-body text-center">
+          <p class="card-text"><%= @user.email %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center justify-content-md-start">
+      <%= render 'articles/articles', obj: @user.articles %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
