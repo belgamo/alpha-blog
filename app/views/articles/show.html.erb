@@ -6,6 +6,12 @@
                     Article
                 </div>
                 <div class="card-body">
+                    <div class="author-wrapper d-flex flex-column align-items-center">
+                        <%= gravatar_for @article.user %>
+                        <%= link_to @article.user.username, user_path(@article.user), class: "card-link font-weight-bolder mt-2" %>
+                        <small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small>
+                    </div>
+                    <hr />
                     <h5 class="card-title"><%= @article.title %></h5>
                     <p class="card-text"><%= @article.description %></p>
                     <%= link_to "Edit this article", edit_article_path(@article), class: 'btn btn-sm btn-primary' %> 
