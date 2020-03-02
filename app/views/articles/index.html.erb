@@ -2,4 +2,9 @@
     <div class="row justify-content-center justify-content-md-start">
         <%= render 'articles', obj: @articles %>
     </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center justify-content-md-start">
+            <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+        </div>
+    </div>
 </div>

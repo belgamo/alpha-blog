@@ -10,4 +10,9 @@
       </div>
     <% end %>
   </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center justify-content-md-start">
+        <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
+  </div>
 </div>

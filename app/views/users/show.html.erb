@@ -13,6 +13,11 @@
     </div>
   </div>
   <div class="row justify-content-center justify-content-md-start">
-      <%= render 'articles/articles', obj: @user.articles %>
+      <%= render 'articles/articles', obj: @user_articles %>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center justify-content-md-start">
+        <%= will_paginate @user_articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
   </div>
 </div>
