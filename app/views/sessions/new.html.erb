@@ -1,0 +1,35 @@
+<div class="row mt-3">
+    <div class="col-12 d-flex flex-column align-items-center">
+        <h1>Log in</h1>
+            <%
+=begin%>
+ <div class="col-md-12 col-lg-6 order-lg-1">
+        <% if @session.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+                <h5>The following errors prohibited this user from being saved:</h5>
+                <ul>
+                    <% @session.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+    </div> 
+<%
+=end%>
+
+    <div class="col-md-12 col-lg-6 order-lg-0">
+        <%= form_for :session, url: login_path do |f| %>
+            <div class="form-group">
+              <%= f.label :email, for: 'user_title' %>
+              <%= f.email_field :email, class: 'form-control', id: 'user_title', placeholder: 'Email' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, for: 'password_description' %>        
+              <%= f.password_field :password, class: 'form-control', id: 'password_description', placeholder: 'Password' %>
+            </div>
+            <%= f.submit 'Log in', class: 'btn btn-primary' %> 
+        <% end %>
+    </div>
+    </div>
+</div>

@@ -14,8 +14,11 @@
                     <hr />
                     <h5 class="card-title"><%= @article.title %></h5>
                     <p class="card-text"><%= @article.description %></p>
-                    <%= link_to "Edit this article", edit_article_path(@article), class: 'btn btn-sm btn-primary' %> 
-                    <%= link_to "Delete this article", article_path, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %> 
+
+                    <% if logged_in? && current_user == @article.user %>
+                        <%= link_to "Edit this article", edit_article_path(@article), class: 'btn btn-sm btn-primary' %> 
+                        <%= link_to "Delete this article", article_path, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %> 
+                    <% end %>
                 </div>
                 <div class="card-footer text-muted">
                     <%= time_ago_in_words(@article.updated_at) %>
