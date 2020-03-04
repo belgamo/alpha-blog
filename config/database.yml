@@ -12,6 +12,8 @@ default: &default
 development:
   <<: *default
   database: alpha-blog_development
+  username: postgres
+  password: 20102011go
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

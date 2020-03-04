@@ -42,7 +42,10 @@
                 <%= link_to 'Logout', logout_path, method: :delete, class: "dropdown-item" %>
               </div>
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My profile
+                <% if current_user.admin? %>
+                  <span class="badge badge-secondary" style="font-size: 0.6em">Admin</span>
+                <% end %>
+                My profile 
               </a>
             </li>
           <% else %>
